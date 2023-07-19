@@ -6,7 +6,6 @@ const deportistaSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-
     email: {
       type: String,
       required: true,
@@ -16,7 +15,6 @@ const deportistaSchema = mongoose.Schema(
       required: true,
       default: Date.now(),
     },
-
     deporte: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Deporte",

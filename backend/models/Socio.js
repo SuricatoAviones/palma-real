@@ -27,7 +27,7 @@ const socioSchema = mongoose.Schema(
         trim:true
     },
     numero_socio: {
-      type: int,
+      type: Number,
       required: true,
       trim: true,
     },

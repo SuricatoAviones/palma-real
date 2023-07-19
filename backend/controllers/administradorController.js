@@ -63,7 +63,7 @@ const confirmar = async (req, res) =>{
         console.log(error);
     }
 
-    res.send({msg:'mostratr perfil'})
+    res.send({msg:'mostrar perfil'})
 };
 
 const autenticar = async (req,res) =>{
