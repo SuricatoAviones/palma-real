@@ -1,26 +1,27 @@
 import mongoose from "mongoose";
 
 const entradaSchema = mongoose.Schema({
-    nombre:{
+    nombres:{
+        type: String,
+        required: true
+    },
+    apellidos:{
+        type: String,
+        required: true
+    },
+    cedula:{
         type: String,
         require: true,
         trim: true
     },
-    apellido:{
-        type: String,
-        require: true
-    },
-    cedula:{
-        type: Number,
-        require: true
-    },
     status:{
         type: Boolean,
-        require: true
+        required: true,
+        default: true
     },
     fecha:{
         type: Date,
-        require: true
+        required: true
     }
 });
 

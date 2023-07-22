@@ -11,13 +11,13 @@ import checkAuth from "../middleware/authMiddleware.js";
 
 router
   .route("/")
-  .post(checkAuth, agregarDeportista)
-  .get(checkAuth, obtenerDeportistas);
+  .post(agregarDeportista)
+  .get(obtenerDeportistas);
 
 router
   .route("/:id")
-  .get(checkAuth, obtenerDeportista)
-  .put(checkAuth, actualizarDeportista)
-  .delete(checkAuth, eliminarDeportista);
+  .get(obtenerDeportista)
+  .put(actualizarDeportista)
+  .delete(eliminarDeportista);
 
 export default router;

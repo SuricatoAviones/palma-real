@@ -2,7 +2,7 @@
 import jwt from 'jsonwebtoken';
 import Administrador from '../models/Administrador.js';
 
-const chechAuth = async (req, res, next) =>{
+const checkAuth = async (req, res, next) =>{
     let token;
     console.log(req.headers.authorization);
     
@@ -11,7 +11,7 @@ const chechAuth = async (req, res, next) =>{
             
             token = req.headers.authorization.split('')[1]
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
-            req.administrador  = await Administrador.findById(decoded.id).select("-passoword -token -confirmado");
+            req.administrador  = await Administrador.findById(decoded.id).select("-password -token -confirmado");
             return next();
         } catch (error) {
             const e = new Error(' Token no valido o inexistente');
@@ -31,4 +31,4 @@ const chechAuth = async (req, res, next) =>{
 };
 
 
-export default chechAuth;
+export default checkAuth;

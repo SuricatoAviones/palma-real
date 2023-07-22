@@ -9,6 +9,9 @@ import deporteRoutes from './routes/deporteRoutes.js'
 import deportistaRoutes from './routes/deportistaRoutes.js'
 import churuataRoutes from './routes/churuataRoutes.js'
 import localRoutes from './routes/localRoutes.js'
+import socioRoutes from './routes/socioRoutes.js'
+import vigilanteRoutes from './routes/vigilanteRoutes.js'
+import alquilerChuruataRoutes from './routes/alquilerChuruataRoutes.js'
 
 const app = express();
 
@@ -41,6 +44,9 @@ app.use('/api/deportes', deporteRoutes)
 app.use('/api/deportes/deportistas', deportistaRoutes)
 app.use('/api/churuatas', churuataRoutes)
 app.use('/api/locales', localRoutes)
+app.use('/api/socios', socioRoutes)
+app.use('/api/vigilantes',vigilanteRoutes)
+app.use('/api/churuatas/alquiler-churuatas',alquilerChuruataRoutes)
 
 
 // Puerto

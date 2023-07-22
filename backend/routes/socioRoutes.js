@@ -11,7 +11,7 @@ import {registrar,
      nuevoPassword,
      actualizarPassword,
      actualizarPerfil} 
-     from '../controllers/administradorController.js';
+     from '../controllers/socioController.js';
 //Midleware
 import checkAuth from '../middleware/authMiddleware.js';
 
@@ -25,9 +25,9 @@ router.post('olvide-password', olvidePassword);
 router.route('/olvide-password/:token').get(comprobarToken).post(nuevoPassword);
 
 // Area privada
-router.get('/perfil', checkAuth, perfil);
-router.put("/perfil/:id", checkAuth, actualizarPerfil);
-router.put("/actualizar-password", checkAuth, actualizarPassword);
+router.get('/perfil', perfil);
+router.put("/perfil/:id", actualizarPerfil);
+router.put("/actualizar-password", actualizarPassword);
 
 
 export default router;

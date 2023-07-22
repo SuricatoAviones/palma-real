@@ -4,20 +4,27 @@ import mongoose from "mongoose";
 const localSchema = mongoose.Schema({
     nombre:{
         type: String,
-        require: true,
-        trim: true
+        required: true,
+    },
+    rif:{
+        type: String,
+        required: true,
+        trim: true,
+        unique: true
     },
     descripcion:{
         type: String,
-        require: true
+        required: true
     },
     status:{
         type: Boolean,
-        require: true
+        required: true,
+        default: true
     },
-    fechaDeVencimiento:{
+    fecha_pago:{
         type: Date,
-        require: true
+        required: true,
+        default: Date.now()
     }
 });
 

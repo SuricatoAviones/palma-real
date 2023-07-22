@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from 'bcrypt';
-import generarId from '../helpers/generarId.js'
+import generarId from '../helpers/generarId.js';
 
 const administradorSchema = mongoose.Schema({
     nombre:{
@@ -24,10 +24,6 @@ const administradorSchema = mongoose.Schema({
         default:null,
         trim:true
     },
-    web:{
-        type: String,
-        default: null
-    },
     token: {
         type: String,
         default: generarId()
@@ -38,21 +34,19 @@ const administradorSchema = mongoose.Schema({
     },
 });
 
-// Modificar contraseña  y Hashearla
-administradorSchema.pre('save',() => async function(next){
-    if (!this.isModified('password')) {
-        next();
+administradorSchema.pre("save", async function (next) {
+    if (!this.isModified("password")) {
+      next();
     }
-    
-    const salt = await bcrypt.getSalt(10)
-    this.password = await bcrypt.hash(this.password, salt)
-});
-
-administradorSchema.methods.comprobarPassword = async function(passwordFormulario) {
-    return await bcrypt.compare(passwordFormulario, this.password)
-}
-
-
-// Exportar Administrador y el Modelo a la DB
-const Administrador = mongoose.model('Administrador', administradorSchema);
-export default Administrador;
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+  });
+  
+administradorSchema.methods.comprobarPassword = async function (
+    passwordFormulario
+  ) {
+    return await bcrypt.compare(passwordFormulario, this.password);
+  };
+  
+  const Administrador = mongoose.model("Administrador", administradorSchema);
+  export default Administrador;

@@ -1,7 +1,7 @@
 import Local from "../models/Local.js";
 
 const agregarLocal = async (req, res) => {
-    const deporte = new Local(req.body);
+    const local = new Local(req.body);
     
     try {
       const localAlmacenado = await local.save();
@@ -42,12 +42,14 @@ const agregarLocal = async (req, res) => {
     // Actualizar Local
     local.nombre = req.body.nombre || local.nombre;
     local.descripcion = req.body.descripcion || local.descripcion;
-    local.nombre = req.body.nombre || local.nombre;
+    local.rif = req.body.rif || local.rif;
+    local.status = req.body.status || local.status;
+    local.fecha_pago = req.body.fecha_pago || local.fecha_pago;
 
   
     try {
-      const deporteActualizado = await deporte.save();
-      res.json(deporteActualizado);
+      const localActualizado = await local.save();
+      res.json(localActualizado);
     } catch (error) {
       console.log(error);
     }

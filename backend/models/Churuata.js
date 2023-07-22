@@ -4,16 +4,17 @@ import mongoose from "mongoose";
 const churuataSchema = mongoose.Schema({
     nombre:{
         type: String,
-        require: true,
+        required: true,
         trim: true
     },
     descripcion:{
         type: String,
-        require: true,
+        required: true,
     },
     status:{
         type:Boolean,
-        require:true
+        required:true,
+        default: true,
     }
 });
 

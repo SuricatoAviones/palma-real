@@ -17,8 +17,8 @@ const emailRegistro = async  (datos) =>{
   const info = await transport.sendMail({
     from: "Palma Real Country Club",
     to: email,
-    subject: "Comprueba tu cuenta en APV",
-    text: "Comprueba tu cuenta en APV",
+    subject: "Comprueba tu cuenta de Palma Real Country Club",
+    text: "Comprueba tu cuenta de Palma Real Country Club",
     html: `<p>Hola: ${nombre}, comprueba tu cuenta en APV.</p>
         <p>Tu cuenta ya esta lista, solo debes comprobarla en el siguiente enlace:
         <a href="${process.env.FRONTEND_URL}/confirmar/${token}">Comprobar Cuenta</a> </p>
