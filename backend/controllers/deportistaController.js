@@ -1,5 +1,6 @@
 import Deportista from "../models/Deportista.js";
 
+
 const agregarDeportista = async (req, res) => {
   const deportista = new Deportista(req.body);
   deportista.deporte = req.deporte._id;
@@ -47,7 +48,10 @@ const actualizarDeportista = async (req, res) => {
   }
 
   // Actualizar Paciente
-  deportista.nombre = req.body.nombre || deportista.nombre;
+  deportista.nombreS = req.body.nombres || deportista.nombres;
+  deportista.apellidos = req.body.apellidos || deportista.apellidos
+  deportista.email = req.body.email || deportista.email;
+  deportista.telefono = req.body.telefono || deportista.telefono;
 
 
   try {

@@ -1,7 +1,7 @@
 import Churuata from "../models/Churuata.js";
 
 const agregarChuruata = async (req, res) => {
-    const deporte = new Churuata(req.body);
+    const churuata = new Churuata(req.body);
     
     try {
       const churuataAlmacenado = await churuata.save();

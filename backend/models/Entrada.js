@@ -21,10 +21,19 @@ const entradaSchema = mongoose.Schema({
     },
     fecha:{
         type: Date,
-        required: true
+        required: true,
+        default: Date.now()
+    },
+    socio:{ 
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Socio",        
     }
-});
+    },
+    {
+        timestamps: true,
+    }   
+);
 
 // Exportar Deporte y el Modelo a la DB
-const Entrada = mongoose.model('Local', entradaSchema);
+const Entrada = mongoose.model('Entrada', entradaSchema);
 export default Entrada;

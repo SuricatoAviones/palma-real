@@ -12,6 +12,7 @@ import localRoutes from './routes/localRoutes.js'
 import socioRoutes from './routes/socioRoutes.js'
 import vigilanteRoutes from './routes/vigilanteRoutes.js'
 import alquilerChuruataRoutes from './routes/alquilerChuruataRoutes.js'
+import entradaRoutes from './routes/entradaRoutes.js'
 
 const app = express();
 
@@ -47,6 +48,7 @@ app.use('/api/locales', localRoutes)
 app.use('/api/socios', socioRoutes)
 app.use('/api/vigilantes',vigilanteRoutes)
 app.use('/api/churuatas/alquiler-churuatas',alquilerChuruataRoutes)
+app.use('api/socios/entradas',entradaRoutes)
 
 
 // Puerto
