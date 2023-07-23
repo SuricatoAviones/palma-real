@@ -12,8 +12,13 @@
   "author": "Luis Angel Gutierrez Bonillo",
   "license": "ISC",
   "dependencies": {
+    "@heroicons/react": "^2.0.18",
+    "@material-tailwind/react": "^2.0.7",
+    "apexcharts": "^3.41.0",
     "axios": "^1.4.0",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
+    "react-apexcharts": "^1.4.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.1"
   },
@@ -28,6 +33,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.1",
     "postcss": "^8.4.25",
+    "prettier": "^3.0.0",
     "tailwindcss": "^3.3.2",
     "vite": "^4.4.0"
   }

@@ -2,6 +2,7 @@ import AlquilerChuruata from "../models/AlquilerChuruata.js";
 
 const agregarAlquilerChuruata = async (req, res) => {
     const alquilerChuruata = new AlquilerChuruata(req.body);
+    alquilerChuruata.churuata = req.body.churuata;
     
     try {
       const alquilerAlmacenado = await alquilerChuruata.save();
@@ -13,7 +14,8 @@ const agregarAlquilerChuruata = async (req, res) => {
   
   const obtenerAlquilerChuruatas = async (req, res) => {
     const alquileres = await AlquilerChuruata.find()
-  
+    .where("churuata")
+    .equals(req.body.churuata);
     res.json(alquileres);
   };
   

@@ -47,8 +47,8 @@ app.use('/api/churuatas', churuataRoutes)
 app.use('/api/locales', localRoutes)
 app.use('/api/socios', socioRoutes)
 app.use('/api/vigilantes',vigilanteRoutes)
-app.use('/api/churuatas/alquiler-churuatas',alquilerChuruataRoutes)
-app.use('api/socios/entradas',entradaRoutes)
+app.use('/api/alquiler-churuatas',alquilerChuruataRoutes)
+app.use('api/entradas',entradaRoutes)
 
 
 // Puerto

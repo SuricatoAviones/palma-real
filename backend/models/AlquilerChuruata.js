@@ -34,8 +34,16 @@ const AlquilerChuruataSchema = mongoose.Schema({
         type: Date,
         required: true,
         default: Date.now(),
+    },
+    churuata:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Churuata",
     }
-});
+    },
+    {
+        timestamps: true,
+    }
+);
 
 // Exportar el Alquiler y el Modelo a la DB
 const AlquilerChuruata = mongoose.model('AlquilerChuruata', AlquilerChuruataSchema);

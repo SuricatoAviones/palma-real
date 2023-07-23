@@ -2,7 +2,7 @@ import Entrada from "../models/Entrada.js";
 
 const agregarEntrada = async (req, res) => {
   const entrada = new Entrada(req.body);
-  entrada.socio = req.socio._id;
+  entrada.socio = req.body.socio;
   try {
     const entradaAlmacenado = await entrada.save();
     res.json(entradaAlmacenado);
@@ -14,7 +14,7 @@ const agregarEntrada = async (req, res) => {
 const obtenerEntradas = async (req, res) => {
   const entradas = await Entrada.find()
     .where("socio")
-    .equals(req.socio);
+    .equals(req.body.socio);
 
   res.json(entradas);
 };

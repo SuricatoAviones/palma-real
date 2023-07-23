@@ -17,7 +17,7 @@ import checkAuth from '../middleware/authMiddleware.js';
 
 
 // Area publica
-router.post('/', registrar);
+router.post('/',registrar);
 router.get('/confirmar/:token', confirmar);
 router.post('/login', autenticar);
 router.post('olvide-password', olvidePassword);

@@ -3,7 +3,8 @@ import Deportista from "../models/Deportista.js";
 
 const agregarDeportista = async (req, res) => {
   const deportista = new Deportista(req.body);
-  deportista.deporte = req.deporte._id;
+  deportista.deporte = req.body.deporte;
+  
   try {
     const deportistaAlmacenado = await deportista.save();
     res.json(deportistaAlmacenado);
@@ -15,7 +16,7 @@ const agregarDeportista = async (req, res) => {
 const obtenerDeportistas = async (req, res) => {
   const deportistas = await Deportista.find()
     .where("deporte")
-    .equals(req.deporte);
+    .equals(req.body.deporte);
 
   res.json(deportistas);
 };
@@ -76,7 +77,7 @@ const eliminarDeportista = async (req, res) => {
 
   try {
     await deportista.deleteOne();
-    res.json({ msg: "Paciente Eliminado" });
+    res.json({ msg: "Deportista Eliminado" });
   } catch (error) {
     console.log(error);
   }

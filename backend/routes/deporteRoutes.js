@@ -11,7 +11,7 @@ import checkAuth from "../middleware/authMiddleware.js";
 
 router
   .route("/")
-  .post(agregarDeporte)
+  .post(checkAuth,agregarDeporte)
   .get(obtenerDeportes);
 
 router
