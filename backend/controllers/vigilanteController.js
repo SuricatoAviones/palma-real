@@ -201,6 +201,42 @@ const actualizarPassword = async (req, res) => {
   }
 };
 
+const obtenerVigilantes = async (req, res) => {
+  const vigilantes = await Vigilante.find()
+
+  res.json(vigilantes);
+};
+
+const obtenerVigilante = async (req, res) => {
+  const { id } = req.params;
+  const vigilante = await Vigilante.findById(id);
+
+  if (!vigilante) {
+    return res.status(404).json({ msg: "No Encontrado" });
+  }
+
+  
+  res.json(vigilante);
+};
+
+const eliminarVigilante = async (req, res) => {
+  const { id } = req.params;
+  const vigilante = await Vigilante.findById(id);
+
+  if (!vigilante) {
+    return res.status(404).json({ msg: "No Encontrado" });
+  }
+
+
+
+  try {
+    await vigilante.deleteOne();
+    res.json({ msg: "Vigilante Eliminado" });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export {
   registrar,
   perfil,
@@ -211,4 +247,7 @@ export {
   nuevoPassword,
   actualizarPerfil,
   actualizarPassword,
+  obtenerVigilante,
+  obtenerVigilantes,
+  eliminarVigilante,
 };

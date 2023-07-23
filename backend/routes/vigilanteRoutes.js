@@ -10,7 +10,10 @@ import {registrar,
      comprobarToken, 
      nuevoPassword,
      actualizarPassword,
-     actualizarPerfil} 
+     actualizarPerfil,
+     obtenerVigilante,
+     obtenerVigilantes,
+     eliminarVigilante} 
      from '../controllers/vigilanteController.js';
 //Midleware
 import checkAuth from '../middleware/authMiddleware.js';
@@ -21,6 +24,13 @@ router.post('/', registrar);
 router.get('/confirmar/:token', confirmar);
 router.post('/login', autenticar);
 router.post('olvide-password', olvidePassword);
+
+router.get('/',obtenerVigilantes);
+router
+     .route("/:id")
+     .get(obtenerVigilante)
+     .delete(eliminarVigilante);
+
 
 router.route('/olvide-password/:token').get(comprobarToken).post(nuevoPassword);
 

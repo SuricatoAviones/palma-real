@@ -192,6 +192,42 @@ const actualizarPerfil = async (req, res) => {
   }
 };
 
+const obtenerSocios = async (req, res) => {
+  const socios = await Socio.find()
+
+  res.json(socios);
+};
+
+const obtenerSocio = async (req, res) => {
+  const { id } = req.params;
+  const socio = await Socio.findById(id);
+
+  if (!socio) {
+    return res.status(404).json({ msg: "No Encontrado" });
+  }
+
+  
+  res.json(socio);
+};
+
+const eliminarSocio = async (req, res) => {
+  const { id } = req.params;
+  const socio = await Socio.findById(id);
+
+  if (!socio) {
+    return res.status(404).json({ msg: "No Encontrado" });
+  }
+
+
+
+  try {
+    await socio.deleteOne();
+    res.json({ msg: "Socio Eliminado" });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const actualizarPassword = async (req, res) => {
   // Leer los datos
   const { id } = req.socio;
@@ -226,4 +262,7 @@ export {
   nuevoPassword,
   actualizarPerfil,
   actualizarPassword,
+  obtenerSocios,
+  obtenerSocio,
+  eliminarSocio,
 };

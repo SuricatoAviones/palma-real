@@ -10,7 +10,10 @@ import {registrar,
      comprobarToken, 
      nuevoPassword,
      actualizarPassword,
-     actualizarPerfil} 
+     actualizarPerfil,
+     obtenerSocios,
+     obtenerSocio,
+     eliminarSocio} 
      from '../controllers/socioController.js';
 //Midleware
 import checkAuth from '../middleware/authMiddleware.js';
@@ -21,6 +24,12 @@ router.post('/', registrar);
 router.get('/confirmar/:token', confirmar);
 router.post('/login', autenticar);
 router.post('olvide-password', olvidePassword);
+
+router.get('/',obtenerSocios);
+router
+     .route("/:id")
+     .get(obtenerSocio)
+     .delete(eliminarSocio);
 
 router.route('/olvide-password/:token').get(comprobarToken).post(nuevoPassword);
 
