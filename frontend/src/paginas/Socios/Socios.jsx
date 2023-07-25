@@ -24,16 +24,12 @@ import Footer from "../../components/Footer";
     
 
   
-
-
 const defaultTheme = createTheme();
 
-const Dashboard = () => {
-    
-    
-  
-    return (
-      <ThemeProvider theme={defaultTheme}>
+
+const Socios = () => {
+  return (
+    <ThemeProvider theme={defaultTheme}>
         <Box sx={{ display: 'flex' }}>
           <CssBaseline />
           <AppBarHeader></AppBarHeader>
@@ -62,7 +58,7 @@ const Dashboard = () => {
                       height: 240,
                     }}
                   >
-                    Dashboard
+                    Socios
                   </Paper>
                 </Grid>                
               </Grid>
@@ -71,7 +67,7 @@ const Dashboard = () => {
           </Box>
         </Box>
       </ThemeProvider>
-    );
+  )
 }
 
-export default Dashboard
+export default Socios

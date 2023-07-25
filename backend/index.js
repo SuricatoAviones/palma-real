@@ -24,7 +24,7 @@ dotenv.config();
 conectarDB();
 
 // CORS
-/* const dominiosPermitidos = [process.env.FRONTEND_URL];
+const dominiosPermitidos = [process.env.FRONTEND_URL];
 
 const corsOptions = {
   origin: function (origin, callback) {
@@ -37,7 +37,7 @@ const corsOptions = {
   },
 };
 
-app.use(cors(corsOptions)); */
+app.use(cors(corsOptions));
 
 // Routes
 app.use('/api/administradores', administradorRoutes)

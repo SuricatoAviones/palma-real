@@ -12,12 +12,12 @@ import checkAuth from "../middleware/authMiddleware.js";
 router
   .route("/")
   .post(agregarEntrada)
-  .get(checkAuth,obtenerEntradas);
+  .get(obtenerEntradas);
 
 router
   .route("/:id")
-  .get(checkAuth,obtenerEntrada)
-  .put(checkAuth,actualizarEntrada)
-  .delete(checkAuth,eliminarEntrada);
+  .get(obtenerEntrada)
+  .put(actualizarEntrada)
+  .delete(eliminarEntrada);
 
 export default router;

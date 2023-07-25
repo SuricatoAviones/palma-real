@@ -16,24 +16,11 @@ import Paper from '@mui/material/Paper';
 import AppBarHeader from "../../components/AppBarHeader";
 import Footer from "../../components/Footer";
 
-
-
-
-
-  
-    
-
-  
-
-
 const defaultTheme = createTheme();
 
-const Dashboard = () => {
-    
-    
-  
-    return (
-      <ThemeProvider theme={defaultTheme}>
+const Deportistas = () => {
+  return (
+    <ThemeProvider theme={defaultTheme}>
         <Box sx={{ display: 'flex' }}>
           <CssBaseline />
           <AppBarHeader></AppBarHeader>
@@ -62,7 +49,7 @@ const Dashboard = () => {
                       height: 240,
                     }}
                   >
-                    Dashboard
+                    Deportistas
                   </Paper>
                 </Grid>                
               </Grid>
@@ -71,7 +58,7 @@ const Dashboard = () => {
           </Box>
         </Box>
       </ThemeProvider>
-    );
+  )
 }
 
-export default Dashboard
+export default Deportistas
