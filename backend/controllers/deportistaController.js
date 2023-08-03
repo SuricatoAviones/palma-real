@@ -19,6 +19,7 @@ const obtenerDeportistas = async (req, res) => {
     .equals(req.body.deporte);
 
   res.json(deportistas);
+  
 };
 
 const obtenerDeportista = async (req, res) => {
@@ -49,10 +50,14 @@ const actualizarDeportista = async (req, res) => {
   }
 
   // Actualizar Paciente
-  deportista.nombreS = req.body.nombres || deportista.nombres;
+  deportista.nombres = req.body.nombres || deportista.nombres;
   deportista.apellidos = req.body.apellidos || deportista.apellidos
   deportista.email = req.body.email || deportista.email;
   deportista.telefono = req.body.telefono || deportista.telefono;
+  deportista.fecha_nacimiento = req.body.fecha_nacimiento || deportista.fecha_nacimiento;
+  deportista.fecha_registro = req.body.fecha_registro || deportista.fecha_registro;
+  deportista.fecha_status = req.body.fecha_status || deportista.fecha_status;
+  deportista.deporte = req.body.deporte || deportista.deporte;
 
 
   try {

@@ -1,12 +1,33 @@
-
-import { Link } from 'react-router-dom'
+import { Link,} from "react-router-dom"
+import { useState } from "react";
+import Alerta from '../../components/Alerta'
 const OlvidePassword = () => {
+    const [email, setEmail] = useState('')
+
+  const [alerta, setAlerta] = useState({})
+
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if([email].includes('')) {
+      setAlerta({
+          msg: 'Todos los campos son obligatorios',
+          error: true
+      });
+
+      return 
+  }
+
+  };
+
+  const { msg } = alerta
+    
     return (
         <>
               <div>
                   <h1 className="text-indigo-600 font-black text-6xl">
-                      Recupera tu Acceso y no Pierdas {""} 
-                      <span className="text-black">tus Pacientes</span>
+                      Recupera tu Acceso
+                      
                   </h1>
               </div>
   

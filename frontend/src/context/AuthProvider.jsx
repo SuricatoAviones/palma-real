@@ -1,5 +1,7 @@
 import { useState, useEffect, createContext } from "react";
 import clienteAxios from '../config/axios'
+/* import PropTypes from 'prop-types'; */
+
 const AuthContext = createContext()
 
 const AuthProvider = ({children}) =>{

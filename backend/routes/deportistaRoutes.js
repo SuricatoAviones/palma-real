@@ -16,8 +16,8 @@ router
 
 router
   .route("/:id")
-  .get(checkAuth,obtenerDeportista)
-  .put(checkAuth,actualizarDeportista)
-  .delete(checkAuth,eliminarDeportista);
+  .get(obtenerDeportista)
+  .put(actualizarDeportista)
+  .delete(eliminarDeportista);
 
 export default router;

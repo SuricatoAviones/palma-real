@@ -89,7 +89,7 @@ const Login = () => {
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
+                label="Correo Electronico"
                 name="email"
                 autoComplete="email"
                 autoFocus
@@ -101,7 +101,7 @@ const Login = () => {
                 required
                 fullWidth
                 name="password"
-                label="Password"
+                label="Contraseña"
                 type="password"
                 id="password"
                 autoComplete="current-password"
@@ -110,7 +110,7 @@ const Login = () => {
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
+                label="Recuerdame"
               />
               <Button
                 type="submit"
@@ -122,7 +122,7 @@ const Login = () => {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link to=""href="#" variant="body2">
+                  <Link to="/olvide-password" variant="body2">
                     Olvidaste tu Contraseña?
                   </Link>
                 </Grid>

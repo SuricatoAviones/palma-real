@@ -3,13 +3,16 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PeopleIcon from '@mui/icons-material/People';
-import BarChartIcon from '@mui/icons-material/BarChart';
-import LayersIcon from '@mui/icons-material/Layers';
+
+import Festival from '@mui/icons-material/Festival'
+import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import { Link } from "react-router-dom"
-
+import SportsHandballIcon from '@mui/icons-material/SportsHandball';
+import StorefrontIcon from '@mui/icons-material/Storefront';
+import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
+import HolidayVillageIcon from '@mui/icons-material/HolidayVillage';
 export const mainListItems = (
   <React.Fragment>
     <Link to="/admin">
@@ -21,10 +24,20 @@ export const mainListItems = (
       </ListItemButton>
     
     </Link>
+
+    <Link  to="/admin/alquileres">
+      <ListItemButton>
+        <ListItemIcon>
+          < Festival/>
+        </ListItemIcon>
+        <ListItemText primary="Alquiler Churuatas" />
+      </ListItemButton>
+    </Link>
+
     <Link  to="/admin/deportes">
       <ListItemButton>
         <ListItemIcon>
-          <ShoppingCartIcon />
+          <SportsSoccerIcon />
         </ListItemIcon>
         <ListItemText primary="Deportes" />
       </ListItemButton>
@@ -33,7 +46,7 @@ export const mainListItems = (
   <Link  to="/admin/deportistas">   
     <ListItemButton>
       <ListItemIcon>
-        <PeopleIcon />
+        <SportsHandballIcon />
       </ListItemIcon>
       <ListItemText primary="Deportistas" />
     </ListItemButton>
@@ -51,7 +64,7 @@ export const mainListItems = (
     <Link to="/admin/locales">
       <ListItemButton>
         <ListItemIcon>
-          <BarChartIcon />
+          <StorefrontIcon />
         </ListItemIcon>
         <ListItemText primary="Locales" />
       </ListItemButton>
@@ -60,7 +73,7 @@ export const mainListItems = (
   <Link to="/admin/entradas">
     <ListItemButton>
       <ListItemIcon>
-        <BarChartIcon />
+        <ConfirmationNumberIcon />
       </ListItemIcon>
       <ListItemText primary="Entradas" />
     </ListItemButton>
@@ -69,13 +82,13 @@ export const mainListItems = (
   <Link to="/admin/churuatas">
     <ListItemButton>
       <ListItemIcon>
-        <LayersIcon />
+        <HolidayVillageIcon />
       </ListItemIcon>
       <ListItemText primary="Churuatas" />
     </ListItemButton>
     </Link>
 
-    <Link>
+    <Link to="/admin/reportes">
     <ListItemButton>
       <ListItemIcon>
         <AssignmentIcon />

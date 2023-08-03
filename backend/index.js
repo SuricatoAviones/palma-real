@@ -42,7 +42,7 @@ app.use(cors(corsOptions));
 // Routes
 app.use('/api/administradores', administradorRoutes)
 app.use('/api/deportes', deporteRoutes)
-app.use('/api/deportes/deportistas', deportistaRoutes)
+app.use('/api/deportistas', deportistaRoutes)
 app.use('/api/churuatas', churuataRoutes)
 app.use('/api/locales', localRoutes)
 app.use('/api/socios', socioRoutes)

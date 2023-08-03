@@ -62,7 +62,7 @@ const Dashboard = () => {
                       height: 240,
                     }}
                   >
-                    Dashboard
+                    NO HAY SISTEMA
                   </Paper>
                 </Grid>                
               </Grid>
