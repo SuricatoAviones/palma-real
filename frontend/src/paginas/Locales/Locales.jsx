@@ -288,7 +288,8 @@ const Locales = () => {
                       />
                     </Box>
 
-                    <button onClick={handleSubmit(onSubmit)}>Enviar</button>
+                    <Button variant="contained" onClick={handleSubmit(onSubmit)}>Enviar</Button>
+                    <Button variant="contained" >Cancelar</Button>
                     
                     {cargando ? <p>Cargando...</p> : null}
                     {error ? <p>hubo un error</p> : null}
@@ -422,7 +423,8 @@ const Locales = () => {
                       />
                     </Box>
 
-                    <button onClick={handleSubmit(onSubmitEditar)}>Enviar</button>
+                    <Button onClick={handleSubmit(onSubmitEditar)}>Enviar</Button>
+                    <Button variant="contained" >Cancelar</Button>
                     
                     {cargando ? <p>Cargando...</p> : null}
                     {error ? <p>hubo un error</p> : null}

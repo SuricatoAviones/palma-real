@@ -13,6 +13,8 @@ import SportsHandballIcon from '@mui/icons-material/SportsHandball';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 import HolidayVillageIcon from '@mui/icons-material/HolidayVillage';
+import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
+import SecurityIcon from '@mui/icons-material/Security';
 export const mainListItems = (
   <React.Fragment>
     <Link to="/admin">
@@ -88,12 +90,30 @@ export const mainListItems = (
     </ListItemButton>
     </Link>
 
+    <Link to="/admin/vigilantes">
+    <ListItemButton>
+      <ListItemIcon>
+        <SecurityIcon/>
+      </ListItemIcon>
+      <ListItemText primary="Vigilantes" />
+    </ListItemButton>
+    </Link>
+
     <Link to="/admin/reportes">
     <ListItemButton>
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
       <ListItemText primary="Reporte" />
+    </ListItemButton>
+    </Link>
+
+    <Link to="/">
+    <ListItemButton>
+      <ListItemIcon>
+        <MeetingRoomIcon />
+      </ListItemIcon>
+      <ListItemText primary="Cerrar Sesion" />
     </ListItemButton>
     </Link>
   </React.Fragment>

@@ -3,7 +3,7 @@
 
 import {  createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-
+import { indigo, amber } from "@mui/material/colors";
 import Box from '@mui/material/Box';
 
 import Toolbar from '@mui/material/Toolbar';
@@ -15,6 +15,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import AppBarHeader from "../../components/AppBarHeader";
 import Footer from "../../components/Footer";
+import { Typography } from '@mui/material';
 
 
 
@@ -26,7 +27,12 @@ import Footer from "../../components/Footer";
   
 
 
-const defaultTheme = createTheme();
+const defaultTheme = createTheme({
+  palette: {
+    primary: indigo,
+    secondary: amber,
+  },
+});
 
 const Dashboard = () => {
     
@@ -60,9 +66,12 @@ const Dashboard = () => {
                       display: 'flex',
                       flexDirection: 'column',
                       height: 240,
+                      
                     }}
                   >
-                    NO HAY SISTEMA
+                    <Typography variant="h2" gutterBottom textAlign="center">
+                      Bienvenido al Sistema Country Club Palma Real
+                    </Typography>
                   </Paper>
                 </Grid>                
               </Grid>

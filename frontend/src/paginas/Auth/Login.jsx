@@ -112,6 +112,7 @@ const Login = () => {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Recuerdame"
               />
+              <Link to="/admin">
               <Button
                 type="submit"
                 fullWidth
@@ -120,6 +121,7 @@ const Login = () => {
               >
                 Inicia Sesion
               </Button>
+              </Link>
               <Grid container>
                 <Grid item xs>
                   <Link to="/olvide-password" variant="body2">

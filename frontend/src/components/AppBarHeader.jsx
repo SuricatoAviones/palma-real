@@ -10,6 +10,7 @@ import MuiDrawer from '@mui/material/Drawer';
 import { styled } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom';
 
 
 
@@ -98,9 +99,11 @@ const AppBarHeader = () => {
               >
                 {/* Dashboard */}
               </Typography>
+              <Link to="/admin/perfil">
               <IconButton color="inherit">
                   <h1>Administrador</h1>
               </IconButton>
+              </Link>
             </Toolbar>
           </AppBar>
           <Drawer variant="permanent" open={open}>

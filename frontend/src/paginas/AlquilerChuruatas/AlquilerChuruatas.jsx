@@ -52,9 +52,33 @@ const defaultTheme = createTheme({
 
 
 const AlquilerChuruatas = () => {
-    //Navigate
+    
+  const deportes = [{   
+_id:
+"64bcc5d8f145ebcaeb2e15b6",
+nombres:
+"Jose",
+apellidos:
+"Albarez",
+descripcion_evento:
+"Cumpleaños",
+email:
+"joseioto@gmail.com",
+evento:"Cumpleaños",
+cedula:
+"V277745",
+telefono:
+"04146654",
+fecha_evento:
+"2023-07-23",
+churuata:
+"Churuata #1"
+  }]
+  
+  //Navigate
     let navigate = useNavigate();
-
+    
+ 
     //Modal
     const [open, setOpen] = React.useState(false);
     const handleClose = () => setOpen(false);
@@ -107,7 +131,7 @@ const AlquilerChuruatas = () => {
       cargarDeportes();
     }, []);
   
-    const deportes = useSelector((state) => state.deportes);
+    /* const deportes = useSelector((state) => state.deportes); */
     console.log(deportes);
   
     /* const {nombre, id, descripcion} = deporte; */
@@ -137,7 +161,7 @@ const AlquilerChuruatas = () => {
         <Paper sx={{ mt: 4, mb: 4, mr: 2, ml: 2, height: '75vh' }}>
           <Container sx={{ p: 4 }}>
             <Button variant="contained" color="primary" onClick={handleOpen} sx={{ mb: 2 }}>
-              Agregar Deporte
+              Agregar Alquiler
             </Button>
             <Modal
               open={open}
@@ -176,13 +200,19 @@ const AlquilerChuruatas = () => {
                     <TableHead>
                       <TableRow>
                         <TableCell align="center">ID</TableCell>
-                        <TableCell align="center">Nombre</TableCell>
-                        <TableCell align="center">Descripción</TableCell>
+                        <TableCell align="center">Nombres</TableCell>
+                        <TableCell align="center">Apellidos</TableCell>
+                        <TableCell align="center">Evento</TableCell>
+                        <TableCell align="center">Email</TableCell>
+                        <TableCell align="center">Cedula</TableCell>
+                        <TableCell align="center">Telefono</TableCell>
+                        <TableCell align="center">Fecha</TableCell>
+                        <TableCell align="center">Churuata</TableCell>
                         <TableCell align="center">Acciones</TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
-                      {deportes.deportes.map((row) => (
+                      {deportes.map((row) => (
                         <TableRow
                           key={row._id}
                           sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -191,9 +221,16 @@ const AlquilerChuruatas = () => {
                             {row._id}
                           </TableCell>
                           <TableCell component="th" scope="row">
-                            {row.nombre}
+                            {row.nombres}
                           </TableCell>
-                          <TableCell align="right">{row.descripcion}</TableCell>
+                          <TableCell align="right">{row.apellidos}</TableCell>
+                          <TableCell align="right">{row.evento}</TableCell>
+                          <TableCell align="right">{row.email}</TableCell>
+                          <TableCell align="right">{row.cedula}</TableCell>
+                          <TableCell align="right">{row.telefono}</TableCell>
+                          <TableCell align="right">{row.fecha_evento}</TableCell>
+                          <TableCell align="right">{row.churuata}</TableCell>
+
                           <TableCell align="right">
                             <IconButton onClick={()=> eliminarDeporte(row._id)} aria-label="delete">
                               <DeleteIcon color="primary" />

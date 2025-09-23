@@ -14,9 +14,10 @@ import Locales from './paginas/Locales/Locales'
 import Entradas from './paginas/Entradas/Entradas'
 import Alquiler from './paginas/AlquilerChuruatas/AlquilerChuruatas'
 import Reportes from './paginas/Reportes/reportes'
+import Perfil from './paginas/Perfil'
 import {Provider} from 'react-redux'
 import store from './store'
-
+import Vigilantes from './paginas/Vigilantes/Vigilantes'
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
               </Route>
               <Route path='/admin' element={<RutaProtegida />}>
                 <Route index element={<Dashboard />} />
+                <Route path="perfil" element={<Perfil/>} />
                 <Route path="deportes" element={<Deportes/>} />
                 <Route path="deportistas" element={<Deportistas/>} />
                 <Route path="socios" element={<Socios/>} />
@@ -39,6 +41,7 @@ function App() {
                 <Route path="entradas" element={<Entradas/>} />
                 <Route path="churuatas" element={<Churuatas/>} />
                 <Route path="alquileres" element={<Alquiler/>} />
+                <Route path="vigilantes" element={<Vigilantes/>} />
                 <Route path="reportes" element={<Reportes/>} />
               </Route>       
           </Routes>

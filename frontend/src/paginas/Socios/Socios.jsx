@@ -33,16 +33,27 @@ import {
   IconButton,
   Typography,
   Input,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Switch,
+  
 } from "@mui/material";
 
 //Action de Redux
-import { borrarSocioAction, editarSocioAction, crearNuevoSocioAction } from "../../actions/socioAction";
+import {
+  borrarSocioAction,
+  editarSocioAction,
+  crearNuevoSocioAction,
+} from "../../actions/socioAction";
 import { useDispatch, useSelector } from "react-redux";
 import { obtenerSociosAction } from "../../actions/socioAction";
 
-
-
 import { Controller, useForm } from "react-hook-form";
+
+
+
 
 const style = {
   position: "absolute",
@@ -63,31 +74,29 @@ const defaultTheme = createTheme({
   },
 });
 
-const Socios = () => {
-  const { handleSubmit, control} = useForm({ mode: "onChange" });
 
+
+const Socios = () => {
+  const { handleSubmit, control } = useForm({ mode: "onChange" });
 
   //Modal crear
   const [openSocios, setOpenSocios] = React.useState(false);
   const handleCloseSocios = () => setOpenSocios(false);
 
   const handleOpen = (row) => {
-    console.log(row)
-    setOpenSocios(true)
-  }
+    console.log(row);
+    setOpenSocios(true);
+  };
 
-    //Modal editar
-    const [socioModal, setDeporteModal] = React.useState({});
-    const [openSociosEditar, setOpenSociosEditar] = React.useState(false);
-    const handleCloseSociosEditar = () => setOpenSociosEditar(false);
-  
-    const handleOpenEditar = (deporte) => {
-      setDeporteModal(deporte)
-      setOpenSociosEditar(true)
-    }
+  //Modal editar
+  const [socioModal, setDeporteModal] = React.useState({});
+  const [openSociosEditar, setOpenSociosEditar] = React.useState(false);
+  const handleCloseSociosEditar = () => setOpenSociosEditar(false);
 
-
- 
+  const handleOpenEditar = (deporte) => {
+    setDeporteModal(deporte);
+    setOpenSociosEditar(true);
+  };
 
   // Utilizar el dispath y te crea una funcion
   const dispatch = useDispatch();
@@ -100,19 +109,19 @@ const Socios = () => {
   const { socios } = useSelector((state) => state.socios);
   console.log(socios);
 
-    //Usuario hace submit en el form
+  //Usuario hace submit en el form
   const onSubmit = (dataForm) => {
-    const socio={
+    const socio = {
       nombre: dataForm.nombre,
-      descripcion: dataForm.descripcion
-    }
+      descripcion: dataForm.descripcion,
+    };
 
-    console.log(socio)
+    console.log(socio);
 
     //Crear el nuevo deporte
     dispatch(crearNuevoSocioAction(socio));
 
-    setOpenSocios(!open)
+    setOpenSocios(!open);
   };
 
   // obtener los deportes
@@ -121,23 +130,20 @@ const Socios = () => {
     dispatch(obtenerSociosAction());
   }, []);
 
-
-
-
   const eliminarSocio = (idSocio) => {
     dispatch(borrarSocioAction(idSocio));
-    window.location.reload()
-  }
+    window.location.reload();
+  };
 
   const onSubmitEditar = (dataForm) => {
     const socioEditar = {
       nombre: dataForm.nombreEditar,
       descripcion: dataForm.descripcionEditar,
-    }
+    };
 
-    dispatch(editarSocioAction({socio: socioEditar, id: socioModal._id}));
-    window.location.reload()
-  }
+    dispatch(editarSocioAction({ socio: socioEditar, id: socioModal._id }));
+    window.location.reload();
+  };
 
   return (
     <>
@@ -153,12 +159,12 @@ const Socios = () => {
                   ? theme.palette.grey[100]
                   : theme.palette.grey[900],
               flexGrow: 1,
-              height: "100vh",
+              minHeight: "100vh",
               overflow: "auto",
             }}
           >
             <Toolbar />
-            <Paper sx={{ mt: 4, mb: 4, mr: 2, ml: 2, height: "75vh" }}>
+            <Paper sx={{ mt: 4, mb: 4, mr: 2, ml: 2, minHeight: "75vh" }}>
               <Container sx={{ p: 4, maxWidth: "100%" }}>
                 <Button
                   variant="contained"
@@ -169,101 +175,253 @@ const Socios = () => {
                   Agregar Socio
                 </Button>
                 {/* Modal para crear deportes */}
-                <Modal
-                  open={openSocios}
-                  onClose={handleCloseSocios}
-                  aria-labelledby="modal-modal-title"
-                  aria-describedby="modal-modal-description"
-                >
-                  <Box
-                    sx={style}
-                    noValidate
-                    autoComplete="off"
-                    component="form"
-                  >
-                    <Box sx={{ my: 2 }}>
-                      <Typography
-                        sx={{
-                          fontWeight: 700,
-                          textTransform: "none",
-                          mb: 1,
-                        }}
-                      >
-                        Nombre
-                      </Typography>
-                      <Controller
-                        name="nombre"
-                        defaultValue=""
-                        control={control}
-                        rules={{
-                          required: "Ingresa un nombre",
-                        }}
-                        render={({
-                          field: { onChange, value },
-                          fieldState: { error: errorInput },
-                        }) => (
-                          <Box>
-                            <Input
-                              sx={{ width: "100%" }}
-                              id="standard-adornment-name"
-                              placeholder="Nombre"
-                              onChange={onChange}
-                              type="text"
-                              value={value}
-                              error={!!errorInput}
-                            />
-                            <Typography sx={{ color: "red" }}>
-                              {errorInput?.message}
-                            </Typography>
-                          </Box>
-                        )}
-                      />
-                    </Box>
-                    <Box sx={{ my: 2 }}>
-                      <Typography
-                        sx={{
-                          fontWeight: 700,
-                          textTransform: "none",
-                          mb: 1,
-                        }}
-                      >
-                        Descripcion
-                      </Typography>
-                      <Controller
-                        name="descripcion"
-                        defaultValue=""
-                        control={control}
-                        rules={{
-                          required: "Ingresa una descripcion",
-                        }}
-                        render={({
-                          field: { onChange, value },
-                          fieldState: { error: errorInput },
-                        }) => (
-                          <Box>
-                            <Input
-                              sx={{ width: "100%" }}
-                              id="standard-adornment-name"
-                              placeholder="Descripcion"
-                              onChange={onChange}
-                              type="text"
-                              value={value}
-                              error={!!errorInput}
-                            />
-                            <Typography sx={{ color: "red" }}>
-                              {errorInput?.message}
-                            </Typography>
-                          </Box>
-                        )}
-                      />
-                    </Box>
-
-                    <button onClick={handleSubmit(onSubmit)}>Enviar</button>
-                    
-                    {cargando ? <p>Cargando...</p> : null}
-                    {error ? <p>hubo un error</p> : null}
-                  </Box>
-                </Modal>
+                <Dialog open={openSocios} onClose={handleCloseSocios} fullWidth>
+                  <DialogTitle>Crear socio</DialogTitle>
+                  <DialogContent>
+                    <Grid container display="flex">
+                      <Grid item px={2} xs={6} sx={{ my: 2 }}>
+                        <Typography
+                          sx={{
+                            fontWeight: 700,
+                            textTransform: "none",
+                            mb: 1,
+                          }}
+                        >
+                          Nombre
+                        </Typography>
+                        <Controller
+                          name="nombre"
+                          defaultValue=""
+                          control={control}
+                          rules={{
+                            required: "Ingresa un nombre",
+                          }}
+                          render={({
+                            field: { onChange, value },
+                            fieldState: { error: errorInput },
+                          }) => (
+                            <Box>
+                              <Input
+                                sx={{ width: "100%" }}
+                                id="standard-adornment-name"
+                                placeholder="Nombre"
+                                onChange={onChange}
+                                type="text"
+                                value={value}
+                                error={!!errorInput}
+                              />
+                              <Typography sx={{ color: "red" }}>
+                                {errorInput?.message}
+                              </Typography>
+                            </Box>
+                          )}
+                        />
+                      </Grid>
+                      <Grid item px={2} xs={6} sx={{ my: 2 }}>
+                        <Typography
+                          sx={{
+                            fontWeight: 700,
+                            textTransform: "none",
+                            mb: 1,
+                          }}
+                        >
+                          Apellido
+                        </Typography>
+                        <Controller
+                          name="apellido"
+                          defaultValue=""
+                          control={control}
+                          rules={{
+                            required: "Ingresa una descripcion",
+                          }}
+                          render={({
+                            field: { onChange, value },
+                            fieldState: { error: errorInput },
+                          }) => (
+                            <Box>
+                              <Input
+                                sx={{ width: "100%" }}
+                                id="standard-adornment-name"
+                                placeholder="Descripcion"
+                                onChange={onChange}
+                                type="text"
+                                value={value}
+                                error={!!errorInput}
+                              />
+                              <Typography sx={{ color: "red" }}>
+                                {errorInput?.message}
+                              </Typography>
+                            </Box>
+                          )}
+                        />
+                      </Grid>
+                      <Grid item px={2} xs={6} sx={{ my: 2 }}>
+                        <Typography
+                          sx={{
+                            fontWeight: 700,
+                            textTransform: "none",
+                            mb: 1,
+                          }}
+                        >
+                          Email
+                        </Typography>
+                        <Controller
+                          name="email"
+                          defaultValue=""
+                          control={control}
+                          rules={{
+                            required: "Ingresa una descripcion",
+                          }}
+                          render={({
+                            field: { onChange, value },
+                            fieldState: { error: errorInput },
+                          }) => (
+                            <Box>
+                              <Input
+                                sx={{ width: "100%" }}
+                                id="standard-adornment-name"
+                                placeholder="Descripcion"
+                                onChange={onChange}
+                                type="text"
+                                value={value}
+                                error={!!errorInput}
+                              />
+                              <Typography sx={{ color: "red" }}>
+                                {errorInput?.message}
+                              </Typography>
+                            </Box>
+                          )}
+                        />
+                      </Grid>
+                      <Grid item px={2} xs={6} sx={{ my: 2 }}>
+                        <Typography
+                          sx={{
+                            fontWeight: 700,
+                            textTransform: "none",
+                            mb: 1,
+                          }}
+                        >
+                          Direccion
+                        </Typography>
+                        <Controller
+                          name="direccion"
+                          defaultValue=""
+                          control={control}
+                          rules={{
+                            required: "Ingresa una descripcion",
+                          }}
+                          render={({
+                            field: { onChange, value },
+                            fieldState: { error: errorInput },
+                          }) => (
+                            <Box>
+                              <Input
+                                sx={{ width: "100%" }}
+                                id="standard-adornment-name"
+                                placeholder="Descripcion"
+                                onChange={onChange}
+                                type="text"
+                                value={value}
+                                error={!!errorInput}
+                              />
+                              <Typography sx={{ color: "red" }}>
+                                {errorInput?.message}
+                              </Typography>
+                            </Box>
+                          )}
+                        />
+                      </Grid>
+                      <Grid item px={2} xs={6} sx={{ my: 2 }}>
+                        <Typography
+                          sx={{
+                            fontWeight: 700,
+                            textTransform: "none",
+                            mb: 1,
+                          }}
+                        >
+                          Numero de socio
+                        </Typography>
+                        <Controller
+                          name="socioNumero"
+                          defaultValue=""
+                          control={control}
+                          rules={{
+                            required: "Ingresa una descripcion",
+                          }}
+                          render={({
+                            field: { onChange, value },
+                            fieldState: { error: errorInput },
+                          }) => (
+                            <Box>
+                              <Input
+                                sx={{ width: "100%" }}
+                                id="standard-adornment-name"
+                                placeholder="Descripcion"
+                                onChange={onChange}
+                                type="text"
+                                value={value}
+                                error={!!errorInput}
+                              />
+                              <Typography sx={{ color: "red" }}>
+                                {errorInput?.message}
+                              </Typography>
+                            </Box>
+                          )}
+                        />
+                      </Grid>
+                      <Grid item px={2} xs={6} sx={{ my: 2 }}>
+                        <Typography
+                          sx={{
+                            fontWeight: 700,
+                            textTransform: "none",
+                            mb: 1,
+                          }}
+                        >
+                          Estado
+                        </Typography>
+                        <Controller
+                          name="estado"
+                          defaultValue=""
+                          control={control}
+                          render={({ field: { onChange, value } }) => (
+                            <Box>
+                              <Typography
+                                data-testid="message-is-enabled-carrier"
+                                variant="caption"
+                              >
+                                Inactivo
+                              </Typography>
+                              <Switch
+                                id="enabled-carrier"
+                                onChange={onChange}
+                                value={value}
+                              />
+                              <Typography
+                                data-testid="message-is-enabled-carrier"
+                                variant="caption"
+                              >
+                                Activo
+                              </Typography>
+                            </Box>
+                          )}
+                        />
+                      </Grid>
+                    </Grid>
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={handleCloseSocios} variant="outlined">
+                      Cancelar
+                    </Button>
+                    <Button
+                      onClick={handleSubmit(onSubmit)}
+                      variant="contained"
+                    >
+                      Enviar
+                    </Button>
+                  </DialogActions>
+                  {cargando ? <p>Cargando...</p> : null}
+                  {error ? <p>hubo un error</p> : null}
+                </Dialog>
                 {/* Modal para editar deportes */}
                 <Modal
                   open={openSociosEditar}
@@ -354,10 +512,9 @@ const Socios = () => {
                       />
                     </Box>
 
-                    <button onClick={handleSubmit(onSubmitEditar)}>Enviar</button>
-                    
-                    {cargando ? <p>Cargando...</p> : null}
-                    {error ? <p>hubo un error</p> : null}
+                    <button onClick={handleSubmit(onSubmitEditar)}>
+                      Enviar
+                    </button>
                   </Box>
                 </Modal>
                 <Grid container spacing={6}>
@@ -422,7 +579,7 @@ const Socios = () => {
                                   <DeleteIcon color="primary" />
                                 </IconButton>
                                 <IconButton
-                                  onClick={() =>handleOpenEditar(row)}
+                                  onClick={() => handleOpenEditar(row)}
                                   aria-label="edit"
                                 >
                                   <EditIcon color="primary" />
