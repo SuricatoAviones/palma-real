@@ -96,7 +96,7 @@ const Churuatas = () => {
   useEffect(() => {
     //Consultar a la api
     dispatch(obtenerChuruatasAction());
-  }, []);
+  }, [dispatch]);
 
 
 
@@ -146,7 +146,7 @@ const Churuatas = () => {
                   <DialogTitle>Crear Churuata</DialogTitle>
                   <DialogContent>
                     <Grid container display="flex">
-                      <Grid item px={2} xs={6} sx={{ my: 2 }}>
+                      <Grid size={{ xs: 6 }} sx={{ px: 2, my: 2 }}>
                         <Typography
                           sx={{
                             fontWeight: 700,
@@ -184,7 +184,7 @@ const Churuatas = () => {
                           )}
                         />
                       </Grid>
-                      <Grid item px={2} xs={6} sx={{ my: 2 }}>
+                      <Grid size={{ xs: 6 }} sx={{ px: 2, my: 2 }}>
                         <Typography
                           sx={{
                             fontWeight: 700,
@@ -245,7 +245,7 @@ const Churuatas = () => {
                   <DialogTitle>Editar Churuata</DialogTitle>
                   <DialogContent>
                     <Grid container display="flex">
-                      <Grid item px={2} xs={6} sx={{ my: 2 }}>
+                      <Grid size={{ xs: 6 }} sx={{ px: 2, my: 2 }}>
                         <Typography
                           sx={{
                             fontWeight: 700,
@@ -283,7 +283,7 @@ const Churuatas = () => {
                           )}
                         />
                       </Grid>
-                      <Grid item px={2} xs={6} sx={{ my: 2 }}>
+                      <Grid size={{ xs: 6 }} sx={{ px: 2, my: 2 }}>
                         <Typography
                           sx={{
                             fontWeight: 700,
@@ -340,14 +340,14 @@ const Churuatas = () => {
 
                 <Grid container spacing={6}>
                   {/* Chart */}
-                  <Grid item lg={12}>
+                  <Grid size={12}>
                     <TableContainer component={Paper}>
                       <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableHead>
                           <TableRow>
                             <TableCell align="center">ID</TableCell>
                             <TableCell align="center">Nombre</TableCell>
-                            <TableCell align="center">Descripción</TableCell>
+                            <TableCell align="center">DescripciÃ³n</TableCell>
                             <TableCell align="center">Estado</TableCell>
                             <TableCell align="center">Acciones</TableCell>
                           </TableRow>

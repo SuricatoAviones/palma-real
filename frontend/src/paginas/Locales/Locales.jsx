@@ -115,7 +115,7 @@ const Locales = () => {
   useEffect(() => {
     //Consultar a la api
     dispatch(obtenerLocalesAction());
-  }, []);
+  }, [dispatch]);
 
 
 
@@ -432,7 +432,7 @@ const Locales = () => {
                 </Modal>
                 <Grid container spacing={6}>
                   {/* Chart */}
-                  <Grid item lg={12}>
+                  <Grid size={12}>
                     <TableContainer component={Paper}>
                       <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableHead>
@@ -440,7 +440,7 @@ const Locales = () => {
                             <TableCell align="center">ID</TableCell>
                             <TableCell align="center">Nombre</TableCell>
                             <TableCell align="center">RIF</TableCell>
-                            <TableCell align="center">Descripción</TableCell>
+                            <TableCell align="center">DescripciÃ³n</TableCell>
                             <TableCell align="center">Estado</TableCell>
                             <TableCell align="center">Fecha de Pago</TableCell>
                             <TableCell align="center">Acciones</TableCell>

@@ -20,7 +20,7 @@ import checkAuth from '../middleware/authMiddleware.js';
 router.post('/',registrar);
 router.get('/confirmar/:token', confirmar);
 router.post('/login', autenticar);
-router.post('olvide-password', olvidePassword);
+router.post('/olvide-password', olvidePassword);
 
 router.route('/olvide-password/:token').get(comprobarToken).post(nuevoPassword);
 

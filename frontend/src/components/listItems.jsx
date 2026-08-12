@@ -15,7 +15,8 @@ import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 import HolidayVillageIcon from '@mui/icons-material/HolidayVillage';
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import SecurityIcon from '@mui/icons-material/Security';
-export const mainListItems = (
+
+const MainListItems = () => (
   <React.Fragment>
     <Link to="/admin">
       <ListItemButton>
@@ -118,4 +119,6 @@ export const mainListItems = (
     </Link>
   </React.Fragment>
 );
+
+export default MainListItems;
 

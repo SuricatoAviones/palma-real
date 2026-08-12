@@ -24,7 +24,7 @@ const initialState = {
 }
 
 
-export default function(state =  initialState, action){
+export default function sociosReducer(state = initialState, action) {
     switch(action.type){
         case COMENZAR_DESCARGA_SOCIOS:
         case AGREGAR_SOCIO:

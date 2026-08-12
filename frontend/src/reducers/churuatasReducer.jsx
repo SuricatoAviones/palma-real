@@ -23,7 +23,7 @@ const initialState = {
 }
 
 
-export default function(state =  initialState, action){
+export default function churuatasReducer(state = initialState, action) {
     switch(action.type){
         case COMENZAR_DESCARGA_CHURUATAS:
         case AGREGAR_CHURUATA:

@@ -31,7 +31,7 @@ export function crearNuevaChuruataAction(churuata){
             // Alerta
             Swal.fire(
                 'Correcto',
-                'La churuata se añadio correctamente',
+                'La churuata se aÃ±adio correctamente',
                 'success'
             )
         } catch (error) {
@@ -75,7 +75,7 @@ export function obtenerChuruatasAction(){
         try {
             const respuesta = await clienteAxios.get('/churuatas');
             dispatch(descargarChuruatasExitosa(respuesta.data))
-        } catch (error) {
+        } catch {
            dispatch(descargarChuruatasError()) 
         }
     }

@@ -31,7 +31,7 @@ export function crearNuevoDeporteAction(deporte){
             // Alerta
             Swal.fire(
                 'Correcto',
-                'El deporte se añadio correctamente',
+                'El deporte se aÃ±adio correctamente',
                 'success'
             )
         } catch (error) {
@@ -75,7 +75,7 @@ export function obtenerDeportesAction(){
         try {
             const respuesta = await clienteAxios.get('/deportes');
             dispatch(descargarDeportesExitosa(respuesta.data))
-        } catch (error) {
+        } catch {
            dispatch(descargarDeportesError()) 
         }
     }

@@ -24,7 +24,7 @@ const initialState = {
 }
 
 
-export default function(state =  initialState, action){
+export default function deportesReducer(state = initialState, action) {
     switch(action.type){
         case COMENZAR_DESCARGA_DEPORTES:
         case AGREGAR_DEPORTE:

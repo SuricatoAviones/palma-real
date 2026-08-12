@@ -1,7 +1,7 @@
 import * as React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { mainListItems } from './listItems';
+import MainListItems from './listItems';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
@@ -121,7 +121,7 @@ const AppBarHeader = () => {
             </Toolbar>
             <Divider />
             <List component="nav">
-              {mainListItems}
+              <MainListItems />
               <Divider sx={{ my: 1 }} />
             </List>
           </Drawer>

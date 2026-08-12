@@ -129,7 +129,7 @@ churuata:
       //Consultar a la api
       const cargarDeportes = () => dispatch(obtenerAlquileresAction());
       cargarDeportes();
-    }, []);
+    }, [dispatch]);
   
     /* const deportes = useSelector((state) => state.deportes); */
     console.log(deportes);
@@ -194,7 +194,7 @@ churuata:
             </Modal>
             <Grid container spacing={6}>
               {/* Chart */}
-              <Grid item lg={12}>
+              <Grid size={12}>
                 <TableContainer component={Paper}>
                   <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>

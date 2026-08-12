@@ -33,7 +33,7 @@ export function crearNuevoAlquilerAction(alquiler){
             // Alerta
             Swal.fire(
                 'Correcto',
-                'El alquiler se añadio correctamente',
+                'El alquiler se aÃ±adio correctamente',
                 'success'
             )
         } catch (error) {
@@ -77,7 +77,7 @@ export function obtenerAlquileresAction(){
         try {
             const respuesta = await clienteAxios.get('/alquiler-churuatas');
             dispatch(descargarAlquileresExitosa(respuesta.data))
-        } catch (error) {
+        } catch {
            dispatch(descargarAlquileresError()) 
         }
     }
@@ -126,7 +126,7 @@ const eliminarAlquilerError = () =>({
     payload: true
 })
 
-// Colocar producto en edición
+// Colocar producto en ediciÃ³n
 export function obtenerAlquilerEditar(alquiler) {
     return (dispatch) => {
         dispatch( obtenerAlquilerEditarAction(alquiler) )

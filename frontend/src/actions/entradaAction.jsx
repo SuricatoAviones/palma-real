@@ -32,7 +32,7 @@ export function crearNuevaEntradaAction(){
             // Alerta
             Swal.fire(
                 'Correcto',
-                'La nueva entrada se añadio correctamente',
+                'La nueva entrada se aÃ±adio correctamente',
                 'success'
             )
         } catch (error) {
@@ -76,7 +76,7 @@ export function obtenerEntradasAction(){
         try {
             const respuesta = await clienteAxios.get('/entradas');
             dispatch(descargarEntradasExitosa(respuesta.data))
-        } catch (error) {
+        } catch {
            dispatch(descargarEntradasError()) 
         }
     }

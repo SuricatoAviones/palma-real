@@ -31,7 +31,7 @@ export function crearNuevoDeportistaAction(deportista){
             // Alerta
             Swal.fire(
                 'Correcto',
-                'El deportista se añadio correctamente',
+                'El deportista se aÃ±adio correctamente',
                 'success'
             )
         } catch (error) {
@@ -75,7 +75,7 @@ export function obtenerDeportistasAction(){
         try {
             const respuesta = await clienteAxios.get('/deportistas');
             dispatch(descargarDeportistasExitosa(respuesta.data))
-        } catch (error) {
+        } catch {
            dispatch(descargarDeportistasError()) 
         }
     }

@@ -31,7 +31,7 @@ export function crearNuevoLocalAction(local){
             // Alerta
             Swal.fire(
                 'Correcto',
-                'El Local se añadio correctamente',
+                'El Local se aÃ±adio correctamente',
                 'success'
             )
         } catch (error) {
@@ -75,7 +75,7 @@ export function obtenerLocalesAction(){
         try {
             const respuesta = await clienteAxios.get('/locales');
             dispatch(descargarLocalesExitosa(respuesta.data))
-        } catch (error) {
+        } catch {
            dispatch(descargarLocalesError()) 
         }
     }

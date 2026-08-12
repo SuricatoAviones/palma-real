@@ -38,7 +38,7 @@ const Reportes = () => {
   useEffect(() => {
     //Consultar a la api
     dispatch(obtenerDeportesAction());
-  }, []);
+  }, [dispatch]);
 
   // const headers = [
   //   { label: "ID", key: "_id" },
@@ -68,7 +68,7 @@ const Reportes = () => {
             <Paper sx={{ mt: 4, mb: 4, mr: 2, ml: 2, minHeight: "75vh" }}>
               <Container sx={{ p: 4 }}>
                 <Grid container spacing={6}>
-                  <Grid item lg={2} alignContent={"center"}>
+                  <Grid size={2} alignContent="center">
                     <Card sx={{ minWidth: 275 }}>
                       <CardContent>
                         <Typography

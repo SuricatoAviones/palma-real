@@ -125,7 +125,7 @@ const Entradas = () => {
   useEffect(() => {
     //Consultar a la api
     dispatch(obtenerEntradasAction());
-  }, []);
+  }, [dispatch]);
 
 
 
@@ -176,7 +176,7 @@ const Entradas = () => {
                   <DialogTitle>Crear socio</DialogTitle>
                   <DialogContent>
                     <Grid container display="flex">
-                      <Grid item px={2} xs={6} sx={{ my: 2 }}>
+                      <Grid size={{ xs: 6 }} sx={{ px: 2, my: 2 }}>
                         <Typography
                           sx={{
                             fontWeight: 700,
@@ -214,7 +214,7 @@ const Entradas = () => {
                           )}
                         />
                       </Grid>
-                      <Grid item px={2} xs={6} sx={{ my: 2 }}>
+                      <Grid size={{ xs: 6 }} sx={{ px: 2, my: 2 }}>
                         <Typography
                           sx={{
                             fontWeight: 700,
@@ -252,7 +252,7 @@ const Entradas = () => {
                           )}
                         />
                       </Grid>
-                      <Grid item px={2} xs={6} sx={{ my: 2 }}>
+                      <Grid size={{ xs: 6 }} sx={{ px: 2, my: 2 }}>
                         <Typography
                           sx={{
                             fontWeight: 700,
@@ -291,7 +291,7 @@ const Entradas = () => {
                         />
                       </Grid>
                      
-                      <Grid item px={2} xs={6} sx={{ my: 2 }}>
+                      <Grid size={{ xs: 6 }} sx={{ px: 2, my: 2 }}>
                         <Typography
                           sx={{
                             fontWeight: 700,
@@ -329,7 +329,7 @@ const Entradas = () => {
                           )}
                         />
                       </Grid>
-                      <Grid item px={2} xs={6} sx={{ my: 2 }}>
+                      <Grid size={{ xs: 6 }} sx={{ px: 2, my: 2 }}>
                         <Typography
                           sx={{
                             fontWeight: 700,
@@ -480,7 +480,7 @@ const Entradas = () => {
                 </Modal>
                 <Grid container spacing={6}>
                   {/* Chart */}
-                  <Grid item lg={12}>
+                  <Grid size={12}>
                     <TableContainer component={Paper}>
                       <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableHead>

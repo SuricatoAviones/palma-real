@@ -24,7 +24,7 @@ const initialState = {
 }
 
 
-export default function(state =  initialState, action){
+export default function entradasReducer(state = initialState, action) {
     switch(action.type){
         case COMENZAR_DESCARGA_ENTRADAS:
         case AGREGAR_ENTRADA:

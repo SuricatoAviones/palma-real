@@ -178,7 +178,7 @@ const actualizarPerfil = async (req, res) => {
 
 const actualizarPassword = async (req, res) => {
   // Leer los datos
-  const { id } = req.veterinario;
+  const { id } = req.administrador;
   const { pwd_actual, pwd_nuevo } = req.body;
 
   // Comprobar que el veterinario existe

@@ -31,7 +31,7 @@ export function crearNuevoSocioAction(socios){
             // Alerta
             Swal.fire(
                 'Correcto',
-                'El deporte se añadio correctamente',
+                'El deporte se aÃ±adio correctamente',
                 'success'
             )
         } catch (error) {
@@ -75,7 +75,7 @@ export function obtenerSociosAction(){
         try {
             const respuesta = await clienteAxios.get('/socios');
             dispatch(descargarSociosExitosa(respuesta.data))
-        } catch (error) {
+        } catch {
            dispatch(descargarSociosError()) 
         }
     }
